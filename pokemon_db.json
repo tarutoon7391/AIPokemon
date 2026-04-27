@@ -1,0 +1,519 @@
+{
+  "moves": {
+    "たいあたり":       { "type":"ノーマル", "cat":"物理", "power":40,  "acc":100, "pp":35, "priority":0, "effect":"" },
+    "のしかかり":       { "type":"ノーマル", "cat":"物理", "power":85,  "acc":100, "pp":15, "priority":0, "effect":"par30" },
+    "かみつく":         { "type":"あく",     "cat":"物理", "power":60,  "acc":100, "pp":25, "priority":0, "effect":"flinch30" },
+    "すなかけ":         { "type":"じめん",   "cat":"変化", "power":0,   "acc":100, "pp":15, "priority":0, "effect":"acc_down" },
+    "てだすけ":         { "type":"ノーマル", "cat":"変化", "power":0,   "acc":0,   "pp":20, "priority":5, "effect":"helping_hand" },
+    "ねむる":           { "type":"ノーマル", "cat":"変化", "power":0,   "acc":0,   "pp":10, "priority":0, "effect":"rest" },
+    "じこさいせい":     { "type":"ノーマル", "cat":"変化", "power":0,   "acc":0,   "pp":10, "priority":0, "effect":"recover" },
+    "つるぎのまい":     { "type":"ノーマル", "cat":"変化", "power":0,   "acc":0,   "pp":20, "priority":0, "effect":"atk_up2" },
+    "こうそくいどう":   { "type":"エスパー", "cat":"変化", "power":0,   "acc":0,   "pp":30, "priority":0, "effect":"spd_up2" },
+    "ちょうはつ":       { "type":"あく",     "cat":"変化", "power":0,   "acc":100, "pp":20, "priority":0, "effect":"taunt" },
+    "でんこうせっか":   { "type":"ノーマル", "cat":"物理", "power":40,  "acc":100, "pp":30, "priority":1, "effect":"" },
+    "かえんほうしゃ":   { "type":"ほのお",   "cat":"特殊", "power":90,  "acc":100, "pp":15, "priority":0, "effect":"brn10" },
+    "フレアドライブ":   { "type":"ほのお",   "cat":"物理", "power":120, "acc":100, "pp":15, "priority":0, "effect":"brn10_recoil" },
+    "ほのおのうず":     { "type":"ほのお",   "cat":"特殊", "power":35,  "acc":85,  "pp":15, "priority":0, "effect":"trap" },
+    "オーバーヒート":   { "type":"ほのお",   "cat":"特殊", "power":130, "acc":90,  "pp":5,  "priority":0, "effect":"spatk_down2_self" },
+    "ニトロチャージ":   { "type":"ほのお",   "cat":"物理", "power":50,  "acc":100, "pp":20, "priority":0, "effect":"spd_up1_self" },
+    "みずてっぽう":     { "type":"みず",     "cat":"特殊", "power":40,  "acc":100, "pp":25, "priority":0, "effect":"" },
+    "なみのり":         { "type":"みず",     "cat":"特殊", "power":90,  "acc":100, "pp":15, "priority":0, "effect":"" },
+    "ハイドロポンプ":   { "type":"みず",     "cat":"特殊", "power":110, "acc":80,  "pp":5,  "priority":0, "effect":"" },
+    "アクアジェット":   { "type":"みず",     "cat":"物理", "power":40,  "acc":100, "pp":20, "priority":1, "effect":"" },
+    "しおみず":         { "type":"みず",     "cat":"特殊", "power":65,  "acc":100, "pp":10, "priority":0, "effect":"half_hp_bonus" },
+    "クラブハンマー":   { "type":"みず",     "cat":"物理", "power":100, "acc":90,  "pp":10, "priority":0, "effect":"highcrit" },
+    "はっぱカッター":   { "type":"くさ",     "cat":"物理", "power":55,  "acc":95,  "pp":25, "priority":0, "effect":"highcrit" },
+    "ソーラービーム":   { "type":"くさ",     "cat":"特殊", "power":120, "acc":100, "pp":10, "priority":0, "effect":"" },
+    "やどりぎのタネ":   { "type":"くさ",     "cat":"変化", "power":0,   "acc":90,  "pp":10, "priority":0, "effect":"leech_seed" },
+    "メガドレイン":     { "type":"くさ",     "cat":"特殊", "power":40,  "acc":100, "pp":15, "priority":0, "effect":"drain" },
+    "エナジーボール":   { "type":"くさ",     "cat":"特殊", "power":90,  "acc":100, "pp":10, "priority":0, "effect":"spdef_down10" },
+    "でんきショック":   { "type":"でんき",   "cat":"特殊", "power":40,  "acc":100, "pp":30, "priority":0, "effect":"par10" },
+    "10まんボルト":     { "type":"でんき",   "cat":"特殊", "power":90,  "acc":100, "pp":15, "priority":0, "effect":"par10" },
+    "かみなり":         { "type":"でんき",   "cat":"特殊", "power":110, "acc":70,  "pp":10, "priority":0, "effect":"par30" },
+    "ボルテッカー":     { "type":"でんき",   "cat":"物理", "power":120, "acc":100, "pp":15, "priority":0, "effect":"par20_recoil" },
+    "ボルトチェンジ":   { "type":"でんき",   "cat":"特殊", "power":70,  "acc":100, "pp":20, "priority":0, "effect":"volt_switch" },
+    "れいとうビーム":   { "type":"こおり",   "cat":"特殊", "power":90,  "acc":100, "pp":10, "priority":0, "effect":"frz10" },
+    "ふぶき":           { "type":"こおり",   "cat":"特殊", "power":110, "acc":70,  "pp":5,  "priority":0, "effect":"frz10" },
+    "れいとうパンチ":   { "type":"こおり",   "cat":"物理", "power":75,  "acc":100, "pp":15, "priority":0, "effect":"frz10" },
+    "こごえるかぜ":     { "type":"こおり",   "cat":"特殊", "power":55,  "acc":95,  "pp":15, "priority":0, "effect":"spd_down_target" },
+    "かわらわり":       { "type":"かくとう", "cat":"物理", "power":75,  "acc":100, "pp":15, "priority":0, "effect":"" },
+    "ばかぢから":       { "type":"かくとう", "cat":"物理", "power":120, "acc":100, "pp":5,  "priority":0, "effect":"atk_def_down_self" },
+    "インファイト":     { "type":"かくとう", "cat":"物理", "power":120, "acc":100, "pp":5,  "priority":0, "effect":"def_spdef_down_self" },
+    "マッハパンチ":     { "type":"かくとう", "cat":"物理", "power":40,  "acc":100, "pp":20, "priority":1, "effect":"" },
+    "どくどく":         { "type":"どく",     "cat":"変化", "power":0,   "acc":90,  "pp":10, "priority":0, "effect":"badly_poison" },
+    "ヘドロウェーブ":   { "type":"どく",     "cat":"特殊", "power":95,  "acc":100, "pp":10, "priority":0, "effect":"psn30" },
+    "どくづき":         { "type":"どく",     "cat":"物理", "power":80,  "acc":100, "pp":20, "priority":0, "effect":"psn30" },
+    "じしん":           { "type":"じめん",   "cat":"物理", "power":100, "acc":100, "pp":10, "priority":0, "effect":"" },
+    "じならし":         { "type":"じめん",   "cat":"物理", "power":60,  "acc":100, "pp":20, "priority":0, "effect":"spd_down_target" },
+    "だいちのちから":   { "type":"じめん",   "cat":"特殊", "power":90,  "acc":100, "pp":10, "priority":0, "effect":"spdef_down10" },
+    "つばさでうつ":     { "type":"ひこう",   "cat":"物理", "power":60,  "acc":100, "pp":35, "priority":0, "effect":"" },
+    "ブレイブバード":   { "type":"ひこう",   "cat":"物理", "power":120, "acc":100, "pp":15, "priority":0, "effect":"recoil_33" },
+    "エアスラッシュ":   { "type":"ひこう",   "cat":"特殊", "power":75,  "acc":95,  "pp":15, "priority":0, "effect":"flinch30" },
+    "かぜおこし":       { "type":"ひこう",   "cat":"特殊", "power":40,  "acc":100, "pp":35, "priority":0, "effect":"" },
+    "サイコキネシス":   { "type":"エスパー", "cat":"特殊", "power":90,  "acc":100, "pp":10, "priority":0, "effect":"spdef_down10" },
+    "みらいよち":       { "type":"エスパー", "cat":"特殊", "power":120, "acc":100, "pp":10, "priority":0, "effect":"" },
+    "サイコショック":   { "type":"エスパー", "cat":"特殊", "power":80,  "acc":100, "pp":10, "priority":0, "effect":"" },
+    "むしくい":         { "type":"むし",     "cat":"物理", "power":60,  "acc":100, "pp":20, "priority":0, "effect":"" },
+    "シグナルビーム":   { "type":"むし",     "cat":"特殊", "power":75,  "acc":100, "pp":15, "priority":0, "effect":"confuse10" },
+    "むしのさざめき":   { "type":"むし",     "cat":"特殊", "power":90,  "acc":100, "pp":10, "priority":0, "effect":"spdef_down50" },
+    "いわなだれ":       { "type":"いわ",     "cat":"物理", "power":75,  "acc":90,  "pp":10, "priority":0, "effect":"flinch30" },
+    "ストーンエッジ":   { "type":"いわ",     "cat":"物理", "power":100, "acc":80,  "pp":5,  "priority":0, "effect":"highcrit" },
+    "がんせきほう":     { "type":"いわ",     "cat":"特殊", "power":110, "acc":80,  "pp":5,  "priority":0, "effect":"" },
+    "シャドーボール":   { "type":"ゴースト", "cat":"特殊", "power":80,  "acc":100, "pp":15, "priority":0, "effect":"spdef_down20" },
+    "おにび":           { "type":"ゴースト", "cat":"変化", "power":0,   "acc":85,  "pp":15, "priority":0, "effect":"burn" },
+    "シャドークロー":   { "type":"ゴースト", "cat":"物理", "power":70,  "acc":100, "pp":15, "priority":0, "effect":"highcrit" },
+    "りゅうのいぶき":   { "type":"ドラゴン", "cat":"特殊", "power":60,  "acc":100, "pp":20, "priority":0, "effect":"par30" },
+    "げきりん":         { "type":"ドラゴン", "cat":"物理", "power":120, "acc":100, "pp":10, "priority":0, "effect":"confuse_self" },
+    "りゅうせいぐん":   { "type":"ドラゴン", "cat":"特殊", "power":130, "acc":90,  "pp":5,  "priority":0, "effect":"spatk_down2_self" },
+    "ドラゴンクロー":   { "type":"ドラゴン", "cat":"物理", "power":80,  "acc":100, "pp":15, "priority":0, "effect":"" },
+    "かみくだく":       { "type":"あく",     "cat":"物理", "power":80,  "acc":100, "pp":15, "priority":0, "effect":"def_down20" },
+    "イカサマ":         { "type":"あく",     "cat":"物理", "power":95,  "acc":100, "pp":15, "priority":0, "effect":"use_enemy_atk" },
+    "ふいうち":         { "type":"あく",     "cat":"物理", "power":80,  "acc":100, "pp":5,  "priority":1, "effect":"" },
+    "アイアンテール":   { "type":"はがね",   "cat":"物理", "power":100, "acc":75,  "pp":15, "priority":0, "effect":"def_down30" },
+    "メタルクロー":     { "type":"はがね",   "cat":"物理", "power":50,  "acc":95,  "pp":35, "priority":0, "effect":"atk_up10_self" },
+    "ラスターカノン":   { "type":"はがね",   "cat":"特殊", "power":80,  "acc":100, "pp":10, "priority":0, "effect":"spdef_down10" },
+    "コメットパンチ":   { "type":"はがね",   "cat":"物理", "power":100, "acc":85,  "pp":5,  "priority":0, "effect":"atk_up20_self" },
+    "マジカルシャイン": { "type":"フェアリー","cat":"特殊", "power":80,  "acc":100, "pp":10, "priority":0, "effect":"" },
+    "ムーンフォース":   { "type":"フェアリー","cat":"特殊", "power":95,  "acc":100, "pp":15, "priority":0, "effect":"spatk_down30" },
+    "じゃれつく":       { "type":"フェアリー","cat":"物理", "power":90,  "acc":90,  "pp":15, "priority":0, "effect":"atk_down30" },
+    "ドレインキッス":   { "type":"フェアリー","cat":"特殊", "power":50,  "acc":100, "pp":10, "priority":0, "effect":"drain" }
+  },
+
+  "items": {
+    "なし":              { "desc": "" },
+    "たべのこし":        { "desc": "毎ターン最大HPの1/16回復" },
+    "オボンのみ":        { "desc": "HP半分以下で1/4回復(1回)" },
+    "いのちのたま":      { "desc": "技の威力1.3倍・毎ターン1/10ダメージ" },
+    "きあいのタスキ":    { "desc": "満タンから瀕死になるとき1残る(1回)" },
+    "こだわりスカーフ":  { "desc": "素早さ1.5倍・同じ技しか出せない" },
+    "とつげきチョッキ":  { "desc": "特防1.5倍・変化技使用不可" },
+    "しんかのきせき":    { "desc": "防御・特防1.5倍(未進化時)" },
+    "ひかりのこな":      { "desc": "相手の技の命中率を0.9倍にする" },
+    "たつじんのおび":    { "desc": "効果抜群の技の威力1.2倍" },
+    "こだわりハチマキ":  { "desc": "攻撃1.5倍・同じ技しか出せない" },
+    "こだわりメガネ":    { "desc": "特攻1.5倍・同じ技しか出せない" }
+  },
+
+  "natures": {
+    "てれや":     { "plus": null,    "minus": null },
+    "いじっぱり": { "plus": "atk",   "minus": "spatk" },
+    "ひかえめ":   { "plus": "spatk", "minus": "atk" },
+    "ようき":     { "plus": "speed", "minus": "spatk" },
+    "おくびょう": { "plus": "speed", "minus": "atk" },
+    "わんぱく":   { "plus": "def",   "minus": "spatk" },
+    "おだやか":   { "plus": "spdef", "minus": "atk" },
+    "しんちょう": { "plus": "spdef", "minus": "spatk" },
+    "ずぶとい":   { "plus": "def",   "minus": "atk" },
+    "なまいき":   { "plus": "spdef", "minus": "speed" },
+    "のんき":     { "plus": "def",   "minus": "speed" },
+    "さみしがり": { "plus": "atk",   "minus": "def" },
+    "やんちゃ":   { "plus": "atk",   "minus": "spdef" },
+    "ゆうかん":   { "plus": "atk",   "minus": "speed" }
+  },
+
+  "pokemon": {
+    "ピカチュウ": {
+      "types": ["でんき"],
+      "icon": "⚡", "color": "#F8D030",
+      "ability": "せいでんき",
+      "abilityDesc": "触れた相手を30%の確率でまひにする",
+      "baseStats": { "hp":35, "atk":55, "def":40, "spatk":50, "spdef":50, "speed":90 },
+      "allMoves": ["10まんボルト","でんこうせっか","アイアンテール","かみなり","ボルテッカー","つるぎのまい","こうそくいどう"]
+    },
+    "ライチュウ": {
+      "types": ["でんき"],
+      "icon": "⚡", "color": "#E8A020",
+      "ability": "せいでんき",
+      "abilityDesc": "触れた相手を30%の確率でまひにする",
+      "baseStats": { "hp":60, "atk":90, "def":55, "spatk":90, "spdef":80, "speed":110 },
+      "allMoves": ["10まんボルト","でんこうせっか","アイアンテール","かみなり","ボルテッカー","じしん","マジカルシャイン"]
+    },
+    "フシギバナ": {
+      "types": ["くさ","どく"],
+      "icon": "🌿", "color": "#78C850",
+      "ability": "しんりょく",
+      "abilityDesc": "HPが1/3以下のとき草タイプの技の威力が1.5倍になる",
+      "baseStats": { "hp":80, "atk":82, "def":83, "spatk":100, "spdef":100, "speed":80 },
+      "allMoves": ["ソーラービーム","やどりぎのタネ","メガドレイン","ヘドロウェーブ","どくどく","はっぱカッター","れいとうビーム"]
+    },
+    "リザードン": {
+      "types": ["ほのお","ひこう"],
+      "icon": "🔥", "color": "#F08030",
+      "ability": "もうか",
+      "abilityDesc": "HPが1/3以下のとき炎タイプの技の威力が1.5倍になる",
+      "baseStats": { "hp":78, "atk":84, "def":78, "spatk":109, "spdef":85, "speed":100 },
+      "allMoves": ["かえんほうしゃ","フレアドライブ","エアスラッシュ","りゅうのいぶき","オーバーヒート","れいとうパンチ","ブレイブバード"]
+    },
+    "カメックス": {
+      "types": ["みず"],
+      "icon": "💧", "color": "#6890F0",
+      "ability": "げきりゅう",
+      "abilityDesc": "HPが1/3以下のとき水タイプの技の威力が1.5倍になる",
+      "baseStats": { "hp":79, "atk":83, "def":100, "spatk":85, "spdef":105, "speed":78 },
+      "allMoves": ["なみのり","ハイドロポンプ","れいとうビーム","アクアジェット","じしん","いわなだれ","しおみず"]
+    },
+    "イーブイ": {
+      "types": ["ノーマル"],
+      "icon": "🦊", "color": "#A8A878",
+      "ability": "てきおうりょく",
+      "abilityDesc": "同じタイプ補正が2倍になる（STABが3倍）",
+      "baseStats": { "hp":55, "atk":55, "def":50, "spatk":45, "spdef":65, "speed":55 },
+      "allMoves": ["たいあたり","かみつく","すなかけ","てだすけ","のしかかり","マジカルシャイン"]
+    },
+    "サンダース": {
+      "types": ["でんき"],
+      "icon": "⚡", "color": "#F8D030",
+      "ability": "ちくでん",
+      "abilityDesc": "電気技を受けると無効化しHPが1/4回復する",
+      "baseStats": { "hp":65, "atk":65, "def":60, "spatk":110, "spdef":95, "speed":130 },
+      "allMoves": ["10まんボルト","かみなり","シャドーボール","ボルトチェンジ","こうそくいどう","マジカルシャイン"]
+    },
+    "ブースター": {
+      "types": ["ほのお"],
+      "icon": "🔥", "color": "#F08030",
+      "ability": "もらいび",
+      "abilityDesc": "炎タイプの技を受けると無効化し炎技威力が1.5倍になる",
+      "baseStats": { "hp":65, "atk":130, "def":60, "spatk":95, "spdef":110, "speed":65 },
+      "allMoves": ["フレアドライブ","かえんほうしゃ","かみつく","ばかぢから","じしん","のしかかり","おにび"]
+    },
+    "シャワーズ": {
+      "types": ["みず"],
+      "icon": "💧", "color": "#6890F0",
+      "ability": "ちょすい",
+      "abilityDesc": "水タイプの技を受けると無効化しHPが1/4回復する",
+      "baseStats": { "hp":130, "atk":65, "def":60, "spatk":110, "spdef":95, "speed":65 },
+      "allMoves": ["ハイドロポンプ","なみのり","れいとうビーム","しおみず","ねむる","どくどく","メガドレイン"]
+    },
+    "サンドパン": {
+      "types": ["じめん"],
+      "icon": "🏜️", "color": "#E0C068",
+      "ability": "すながくれ",
+      "abilityDesc": "砂嵐状態のとき回避率が1.25倍になる",
+      "baseStats": { "hp":75, "atk":100, "def":110, "spatk":45, "spdef":55, "speed":65 },
+      "allMoves": ["じしん","いわなだれ","かわらわり","メタルクロー","つるぎのまい","じならし","アイアンテール"]
+    },
+    "ゲンガー": {
+      "types": ["ゴースト","どく"],
+      "icon": "👻", "color": "#705898",
+      "ability": "のろわれボディ",
+      "abilityDesc": "技を受けたとき30%の確率で相手をかなしばり状態にする",
+      "baseStats": { "hp":60, "atk":65, "def":60, "spatk":130, "spdef":75, "speed":110 },
+      "allMoves": ["シャドーボール","ヘドロウェーブ","サイコキネシス","おにび","どくどく","ちょうはつ","ムーンフォース"]
+    },
+    "カイリュー": {
+      "types": ["ドラゴン","ひこう"],
+      "icon": "🐉", "color": "#7038F8",
+      "ability": "マルチスケイル",
+      "abilityDesc": "HPが満タンのとき受けるダメージが半分になる",
+      "baseStats": { "hp":91, "atk":134, "def":95, "spatk":100, "spdef":100, "speed":80 },
+      "allMoves": ["げきりん","りゅうせいぐん","りゅうのいぶき","ブレイブバード","エアスラッシュ","れいとうパンチ","かみなり"]
+    },
+    "カビゴン": {
+      "types": ["ノーマル"],
+      "icon": "😴", "color": "#A8A878",
+      "ability": "めんえき",
+      "abilityDesc": "どく・もうどくを受け付けない",
+      "baseStats": { "hp":160, "atk":110, "def":65, "spatk":65, "spdef":110, "speed":30 },
+      "allMoves": ["のしかかり","じしん","れいとうパンチ","かみくだく","ねむる","どくどく","ばかぢから"]
+    },
+    "ミュウツー": {
+      "types": ["エスパー"],
+      "icon": "✨", "color": "#F85888",
+      "ability": "プレッシャー",
+      "abilityDesc": "相手の技のPPを2ずつ減らす",
+      "baseStats": { "hp":106, "atk":110, "def":90, "spatk":154, "spdef":90, "speed":130 },
+      "allMoves": ["サイコキネシス","みらいよち","れいとうパンチ","かみなり","ばかぢから","ラスターカノン","こうそくいどう"]
+    },
+    "ルカリオ": {
+      "types": ["かくとう","はがね"],
+      "icon": "🔷", "color": "#A8B8D0",
+      "ability": "せいしんりょく",
+      "abilityDesc": "ひるみ状態にならない。眠り状態になりにくい",
+      "baseStats": { "hp":70, "atk":110, "def":70, "spatk":115, "spdef":70, "speed":90 },
+      "allMoves": ["インファイト","マッハパンチ","ラスターカノン","かわらわり","つるぎのまい","サイコキネシス","かみくだく"]
+    },
+    "ガブリアス": {
+      "types": ["ドラゴン","じめん"],
+      "icon": "🦈", "color": "#7038F8",
+      "ability": "すながくれ",
+      "abilityDesc": "砂嵐状態のとき回避率が1.25倍になる",
+      "baseStats": { "hp":108, "atk":130, "def":95, "spatk":80, "spdef":85, "speed":102 },
+      "allMoves": ["げきりん","じしん","ストーンエッジ","かみくだく","つるぎのまい","じならし","アイアンテール"]
+    },
+    "ドラパルト": {
+      "types": ["ドラゴン","ゴースト"],
+      "icon": "👻", "color": "#7038F8",
+      "ability": "すりぬけ",
+      "abilityDesc": "リフレクター・ひかりのかべなどを無視する",
+      "baseStats": { "hp":88, "atk":120, "def":75, "spatk":100, "spdef":75, "speed":142 },
+      "allMoves": ["シャドーボール","りゅうのいぶき","かみくだく","ブレイブバード","こうそくいどう","フレアドライブ","マジカルシャイン"]
+    },
+    "イワンコ": {
+      "types": ["いわ"],
+      "icon": "🪨", "color": "#B8A038",
+      "ability": "かたいつめ",
+      "abilityDesc": "接触技の威力が1.3倍になる",
+      "baseStats": { "hp":45, "atk":65, "def":40, "spatk":30, "spdef":40, "speed":50 },
+      "allMoves": ["いわなだれ","かみつく","たいあたり","じならし"]
+    },
+    "ヒトカゲ": {
+      "types": ["ほのお"],
+      "icon": "🔥", "color": "#F08030",
+      "ability": "もうか",
+      "abilityDesc": "HPが1/3以下のとき炎タイプの技の威力が1.5倍になる",
+      "baseStats": { "hp":39, "atk":52, "def":43, "spatk":60, "spdef":50, "speed":65 },
+      "allMoves": ["かえんほうしゃ","ひっかく","ニトロチャージ","つるぎのまい"]
+    },
+    "ゼニガメ": {
+      "types": ["みず"],
+      "icon": "💧", "color": "#6890F0",
+      "ability": "げきりゅう",
+      "abilityDesc": "HPが1/3以下のとき水タイプの技の威力が1.5倍になる",
+      "baseStats": { "hp":44, "atk":48, "def":65, "spatk":50, "spdef":64, "speed":43 },
+      "allMoves": ["みずてっぽう","たいあたり","アクアジェット","しおみず"]
+    },
+    "フシギダネ": {
+      "types": ["くさ","どく"],
+      "icon": "🌿", "color": "#78C850",
+      "ability": "しんりょく",
+      "abilityDesc": "HPが1/3以下のとき草タイプの技の威力が1.5倍になる",
+      "baseStats": { "hp":45, "atk":49, "def":49, "spatk":65, "spdef":65, "speed":45 },
+      "allMoves": ["はっぱカッター","やどりぎのタネ","メガドレイン","どくどく"]
+    },
+    "ヒポポタス": {
+      "types": ["じめん"],
+      "icon": "🦛", "color": "#E0C068",
+      "ability": "すなおこし",
+      "abilityDesc": "登場時に砂嵐を5ターン起こす",
+      "baseStats": { "hp":68, "atk":72, "def":78, "spatk":38, "spdef":42, "speed":32 },
+      "allMoves": ["じしん","かみつく","じならし","すなかけ"]
+    },
+    "ロコン": {
+      "types": ["ほのお"],
+      "icon": "🦊", "color": "#F08030",
+      "ability": "もらいび",
+      "abilityDesc": "炎タイプの技を受けると無効化し炎技威力が1.5倍になる",
+      "baseStats": { "hp":38, "atk":41, "def":40, "spatk":50, "spdef":65, "speed":65 },
+      "allMoves": ["かえんほうしゃ","おにび","じゃれつく","エナジーボール"]
+    },
+    "ヒトモシ": {
+      "types": ["ゴースト","ほのお"],
+      "icon": "🕯️", "color": "#705898",
+      "ability": "ほのおのからだ",
+      "abilityDesc": "接触した相手を30%の確率でやけどにする",
+      "baseStats": { "hp":44, "atk":30, "def":55, "spatk":90, "spdef":55, "speed":20 },
+      "allMoves": ["シャドーボール","かえんほうしゃ","おにび","サイコキネシス"]
+    },
+    "ラプラス": {
+      "types": ["みず","こおり"],
+      "icon": "🌊", "color": "#6890F0",
+      "ability": "ちょすい",
+      "abilityDesc": "水タイプの技を受けると無効化しHPが1/4回復する",
+      "baseStats": { "hp":130, "atk":85, "def":80, "spatk":85, "spdef":95, "speed":60 },
+      "allMoves": ["なみのり","ふぶき","れいとうビーム","サイコキネシス","うたう","ハイドロポンプ","こごえるかぜ"]
+    },
+    "ガルーラ": {
+      "types": ["ノーマル"],
+      "icon": "🦘", "color": "#A8A878",
+      "ability": "きもったま",
+      "abilityDesc": "ゴーストタイプにノーマル・格闘技が当たる",
+      "baseStats": { "hp":105, "atk":95, "def":80, "spatk":40, "spdef":80, "speed":90 },
+      "allMoves": ["のしかかり","じしん","かみくだく","れいとうパンチ","ねむる","インファイト","ふいうち"]
+    },
+    "ニョロボン": {
+      "types": ["みず","かくとう"],
+      "icon": "💧", "color": "#6890F0",
+      "ability": "すいすい",
+      "abilityDesc": "雨状態のとき素早さが2倍になる",
+      "baseStats": { "hp":90, "atk":95, "def":95, "spatk":70, "spdef":90, "speed":70 },
+      "allMoves": ["なみのり","インファイト","れいとうパンチ","どくどく","じしん","ばかぢから","アクアジェット"]
+    },
+    "エーフィ": {
+      "types": ["エスパー"],
+      "icon": "✨", "color": "#F85888",
+      "ability": "マジックミラー",
+      "abilityDesc": "変化技を跳ね返す",
+      "baseStats": { "hp":65, "atk":65, "def":60, "spatk":130, "spdef":95, "speed":110 },
+      "allMoves": ["サイコキネシス","シャドーボール","マジカルシャイン","れいとうビーム","こうそくいどう","サイコショック","じこさいせい"]
+    },
+    "ブラッキー": {
+      "types": ["あく"],
+      "icon": "🌙", "color": "#705848",
+      "ability": "シンクロ",
+      "abilityDesc": "まひ・どく・やけどを与えた相手にも同じ状態異常を与える",
+      "baseStats": { "hp":95, "atk":65, "def":110, "spatk":60, "spdef":130, "speed":65 },
+      "allMoves": ["かみくだく","イカサマ","おにび","どくどく","ちょうはつ","ねむる","じこさいせい"]
+    },
+    "リーフィア": {
+      "types": ["くさ"],
+      "icon": "🍃", "color": "#78C850",
+      "ability": "ようりょくそ",
+      "abilityDesc": "晴れ状態のとき素早さが2倍になる",
+      "baseStats": { "hp":65, "atk":110, "def":130, "spatk":60, "spdef":65, "speed":95 },
+      "allMoves": ["はっぱカッター","エナジーボール","じゃれつく","インファイト","つるぎのまい","じならし","どくどく"]
+    },
+    "グレイシア": {
+      "types": ["こおり"],
+      "icon": "❄️", "color": "#98D8D8",
+      "ability": "ゆきがくれ",
+      "abilityDesc": "雪・吹雪状態のとき回避率が1.25倍になる",
+      "baseStats": { "hp":65, "atk":60, "def":110, "spatk":130, "spdef":95, "speed":65 },
+      "allMoves": ["ふぶき","れいとうビーム","シャドーボール","じこさいせい","こごえるかぜ","ねむる","れいとうパンチ"]
+    },
+    "ニンフィア": {
+      "types": ["フェアリー"],
+      "icon": "🎀", "color": "#EE99AC",
+      "ability": "フェアリースキン",
+      "abilityDesc": "ノーマルタイプの技がフェアリータイプになり威力1.2倍",
+      "baseStats": { "hp":95, "atk":65, "def":65, "spatk":110, "spdef":130, "speed":60 },
+      "allMoves": ["ムーンフォース","マジカルシャイン","シャドーボール","サイコキネシス","ねむる","じこさいせい","ドレインキッス"]
+    },
+    "ギャラドス": {
+      "types": ["みず","ひこう"],
+      "icon": "🐉", "color": "#6890F0",
+      "ability": "いかく",
+      "abilityDesc": "登場時に相手の攻撃を1段階下げる",
+      "baseStats": { "hp":95, "atk":125, "def":79, "spatk":60, "spdef":100, "speed":81 },
+      "allMoves": ["なみのり","じしん","かみくだく","こおりのキバ","つるぎのまい","アクアジェット","いわなだれ"]
+    },
+    "バシャーモ": {
+      "types": ["ほのお","かくとう"],
+      "icon": "🔥", "color": "#F08030",
+      "ability": "かそく",
+      "abilityDesc": "毎ターン素早さが1段階上がる",
+      "baseStats": { "hp":80, "atk":120, "def":70, "spatk":110, "spdef":70, "speed":80 },
+      "allMoves": ["フレアドライブ","インファイト","かみなり","かわらわり","マッハパンチ","つるぎのまい","サイコキネシス"]
+    },
+    "ミロカロス": {
+      "types": ["みず"],
+      "icon": "🐟", "color": "#6890F0",
+      "ability": "ふしぎなうろこ",
+      "abilityDesc": "状態異常のとき特防が1.5倍になる",
+      "baseStats": { "hp":95, "atk":60, "def":79, "spatk":100, "spdef":125, "speed":80 },
+      "allMoves": ["ハイドロポンプ","れいとうビーム","どくどく","じこさいせい","なみのり","ムーンフォース","シャドーボール"]
+    },
+    "ボーマンダ": {
+      "types": ["ドラゴン","ひこう"],
+      "icon": "🐉", "color": "#7038F8",
+      "ability": "いかく",
+      "abilityDesc": "登場時に相手の攻撃を1段階下げる",
+      "baseStats": { "hp":95, "atk":135, "def":80, "spatk":110, "spdef":80, "speed":100 },
+      "allMoves": ["げきりん","ブレイブバード","りゅうのいぶき","エアスラッシュ","じしん","かみなり","れいとうパンチ"]
+    },
+    "ヘルガー": {
+      "types": ["あく","ほのお"],
+      "icon": "🐕", "color": "#705848",
+      "ability": "はやおき",
+      "abilityDesc": "ねむり状態から素早く回復する（1ターン）",
+      "baseStats": { "hp":75, "atk":90, "def":50, "spatk":110, "spdef":80, "speed":95 },
+      "allMoves": ["かえんほうしゃ","かみくだく","おにび","シャドーボール","ちょうはつ","フレアドライブ","イカサマ"]
+    },
+    "ドンファン": {
+      "types": ["じめん"],
+      "icon": "🐘", "color": "#E0C068",
+      "ability": "がんじょう",
+      "abilityDesc": "一撃で倒されるとき必ずHP1で耐える",
+      "baseStats": { "hp":90, "atk":120, "def":120, "spatk":60, "spdef":60, "speed":50 },
+      "allMoves": ["じしん","いわなだれ","アイアンテール","じならし","かわらわり","のしかかり","じこさいせい"]
+    }
+  },
+
+  "npcs": [
+    {
+      "id": 1,
+      "name": "オーキド博士",
+      "title": "ポケモン研究者",
+      "icon": "👨‍🔬",
+      "difficulty": 1,
+      "comment": "ポケモンのことならまかせなさい！",
+      "party": [
+        { "name":"ピカチュウ", "nature":"てれや",   "item":"なし",          "evs":{"hp":0,"atk":0,"def":0,"spatk":0,"spdef":0,"speed":0}, "moves":["10まんボルト","でんこうせっか","アイアンテール","こうそくいどう"] },
+        { "name":"フシギダネ", "nature":"ひかえめ",  "item":"オボンのみ",    "evs":{"hp":0,"atk":0,"def":0,"spatk":0,"spdef":0,"speed":0}, "moves":["はっぱカッター","やどりぎのタネ","メガドレイン","どくどく"] },
+        { "name":"ヒトカゲ",   "nature":"ようき",   "item":"なし",          "evs":{"hp":0,"atk":0,"def":0,"spatk":0,"spdef":0,"speed":0}, "moves":["かえんほうしゃ","ニトロチャージ","つるぎのまい","ひっかく"] },
+        { "name":"ゼニガメ",   "nature":"わんぱく",  "item":"なし",          "evs":{"hp":0,"atk":0,"def":0,"spatk":0,"spdef":0,"speed":0}, "moves":["みずてっぽう","アクアジェット","しおみず","たいあたり"] },
+        { "name":"イーブイ",   "nature":"てれや",   "item":"なし",          "evs":{"hp":0,"atk":0,"def":0,"spatk":0,"spdef":0,"speed":0}, "moves":["たいあたり","かみつく","マジカルシャイン","てだすけ"] },
+        { "name":"ロコン",     "nature":"ひかえめ",  "item":"なし",          "evs":{"hp":0,"atk":0,"def":0,"spatk":0,"spdef":0,"speed":0}, "moves":["かえんほうしゃ","おにび","じゃれつく","エナジーボール"] }
+      ]
+    },
+    {
+      "id": 2,
+      "name": "カスミ",
+      "title": "ハナダジムリーダー",
+      "icon": "💧",
+      "difficulty": 2,
+      "comment": "みずポケモンの美しさがわからないの？",
+      "party": [
+        { "name":"シャワーズ", "nature":"ひかえめ",  "item":"たべのこし",    "evs":{"hp":252,"atk":0,"def":0,"spatk":252,"spdef":0,"speed":4}, "moves":["ハイドロポンプ","なみのり","れいとうビーム","しおみず"] },
+        { "name":"ラプラス",   "nature":"おだやか",  "item":"オボンのみ",    "evs":{"hp":252,"atk":0,"def":0,"spatk":4,"spdef":252,"speed":0}, "moves":["なみのり","ふぶき","サイコキネシス","こごえるかぜ"] },
+        { "name":"ミロカロス", "nature":"ひかえめ",  "item":"しんかのきせき","evs":{"hp":252,"atk":0,"def":0,"spatk":252,"spdef":4,"speed":0}, "moves":["ハイドロポンプ","れいとうビーム","じこさいせい","どくどく"] },
+        { "name":"ゼニガメ",   "nature":"わんぱく",  "item":"なし",          "evs":{"hp":0,"atk":0,"def":0,"spatk":0,"spdef":0,"speed":0}, "moves":["みずてっぽう","アクアジェット","しおみず","たいあたり"] },
+        { "name":"ニョロボン", "nature":"いじっぱり","item":"こだわりハチマキ","evs":{"hp":4,"atk":252,"def":0,"spatk":0,"spdef":0,"speed":252}, "moves":["なみのり","インファイト","アクアジェット","じしん"] },
+        { "name":"カメックス", "nature":"おだやか",  "item":"とつげきチョッキ","evs":{"hp":252,"atk":0,"def":4,"spatk":0,"spdef":252,"speed":0}, "moves":["なみのり","ハイドロポンプ","れいとうビーム","じしん"] }
+      ]
+    },
+    {
+      "id": 3,
+      "name": "タケシ",
+      "title": "ニビジムリーダー",
+      "icon": "🪨",
+      "difficulty": 2,
+      "comment": "岩のように固い守りを見せてやる！",
+      "party": [
+        { "name":"サンドパン",  "nature":"いじっぱり","item":"こだわりハチマキ","evs":{"hp":4,"atk":252,"def":0,"spatk":0,"spdef":0,"speed":252}, "moves":["じしん","いわなだれ","メタルクロー","かわらわり"] },
+        { "name":"ドンファン",  "nature":"わんぱく",  "item":"たべのこし",    "evs":{"hp":252,"atk":4,"def":252,"spatk":0,"spdef":0,"speed":0}, "moves":["じしん","いわなだれ","じならし","じこさいせい"] },
+        { "name":"ヒポポタス", "nature":"わんぱく",  "item":"たべのこし",    "evs":{"hp":252,"atk":0,"def":252,"spatk":0,"spdef":4,"speed":0}, "moves":["じしん","かみつく","じならし","すなかけ"] },
+        { "name":"イワンコ",    "nature":"いじっぱり","item":"なし",          "evs":{"hp":0,"atk":0,"def":0,"spatk":0,"spdef":0,"speed":0}, "moves":["いわなだれ","かみつく","じならし","たいあたり"] },
+        { "name":"ガブリアス",  "nature":"ようき",    "item":"こだわりスカーフ","evs":{"hp":4,"atk":252,"def":0,"spatk":0,"spdef":0,"speed":252}, "moves":["じしん","ストーンエッジ","げきりん","かみくだく"] },
+        { "name":"ボーマンダ",  "nature":"ようき",    "item":"いのちのたま",  "evs":{"hp":4,"atk":252,"def":0,"spatk":0,"spdef":0,"speed":252}, "moves":["げきりん","ブレイブバード","じしん","ストーンエッジ"] }
+      ]
+    },
+    {
+      "id": 4,
+      "name": "エリカ",
+      "title": "タマムシジムリーダー",
+      "icon": "🌸",
+      "difficulty": 3,
+      "comment": "草花の優雅さとパワーを見せましょう！",
+      "party": [
+        { "name":"フシギバナ",  "nature":"ひかえめ",  "item":"くろいヘドロ",  "evs":{"hp":252,"atk":0,"def":0,"spatk":252,"spdef":4,"speed":0}, "moves":["ソーラービーム","ヘドロウェーブ","やどりぎのタネ","どくどく"] },
+        { "name":"リーフィア",  "nature":"いじっぱり","item":"いのちのたま",  "evs":{"hp":4,"atk":252,"def":0,"spatk":0,"spdef":0,"speed":252}, "moves":["はっぱカッター","インファイト","じゃれつく","つるぎのまい"] },
+        { "name":"ニンフィア",  "nature":"ひかえめ",  "item":"こだわりメガネ","evs":{"hp":252,"atk":0,"def":0,"spatk":252,"spdef":4,"speed":0}, "moves":["ムーンフォース","シャドーボール","サイコキネシス","ドレインキッス"] },
+        { "name":"フシギダネ",  "nature":"ひかえめ",  "item":"なし",          "evs":{"hp":0,"atk":0,"def":0,"spatk":0,"spdef":0,"speed":0}, "moves":["はっぱカッター","やどりぎのタネ","メガドレイン","どくどく"] },
+        { "name":"エーフィ",    "nature":"ひかえめ",  "item":"こだわりメガネ","evs":{"hp":4,"atk":0,"def":0,"spatk":252,"spdef":0,"speed":252}, "moves":["サイコキネシス","シャドーボール","マジカルシャイン","サイコショック"] },
+        { "name":"ロコン",      "nature":"ひかえめ",  "item":"オボンのみ",    "evs":{"hp":252,"atk":0,"def":0,"spatk":252,"spdef":4,"speed":0}, "moves":["かえんほうしゃ","エナジーボール","おにび","じゃれつく"] }
+      ]
+    },
+    {
+      "id": 5,
+      "name": "マチス",
+      "title": "クチバジムリーダー",
+      "icon": "⚡",
+      "difficulty": 3,
+      "comment": "電撃作戦で一気に決めてやる！",
+      "party": [
+        { "name":"ライチュウ",  "nature":"ようき",    "item":"いのちのたま",  "evs":{"hp":4,"atk":252,"def":0,"spatk":0,"spdef":0,"speed":252}, "moves":["ボルテッカー","でんこうせっか","アイアンテール","じしん"] },
+        { "name":"サンダース",  "nature":"ひかえめ",  "item":"こだわりメガネ","evs":{"hp":4,"atk":0,"def":0,"spatk":252,"spdef":0,"speed":252}, "moves":["10まんボルト","シャドーボール","ムーンフォース","ボルトチェンジ"] },
+        { "name":"ルカリオ",    "nature":"ようき",    "item":"こだわりスカーフ","evs":{"hp":4,"atk":252,"def":0,"spatk":0,"spdef":0,"speed":252}, "moves":["インファイト","マッハパンチ","かわらわり","つるぎのまい"] },
+        { "name":"ピカチュウ",  "nature":"ようき",    "item":"でんきだま",    "evs":{"hp":4,"atk":252,"def":0,"spatk":0,"spdef":0,"speed":252}, "moves":["ボルテッカー","でんこうせっか","アイアンテール","かみなり"] },
+        { "name":"ドラパルト",  "nature":"ようき",    "item":"いのちのたま",  "evs":{"hp":4,"atk":252,"def":0,"spatk":0,"spdef":0,"speed":252}, "moves":["シャドーボール","りゅうのいぶき","ブレイブバード","こうそくいどう"] },
+        { "name":"バシャーモ",  "nature":"ようき",    "item":"いのちのたま",  "evs":{"hp":4,"atk":252,"def":0,"spatk":0,"spdef":0,"speed":252}, "moves":["フレアドライブ","インファイト","マッハパンチ","つるぎのまい"] }
+      ]
+    },
+    {
+      "id": 6,
+      "name": "ワタル",
+      "title": "四天王・ドラゴン使い",
+      "icon": "🐉",
+      "difficulty": 4,
+      "comment": "私の竜たちに挑むとは…勇気があるな！",
+      "party": [
+        { "name":"カイリュー",  "nature":"ようき",    "item":"こだわりスカーフ","evs":{"hp":4,"atk":252,"def":0,"spatk":0,"spdef":0,"speed":252}, "moves":["げきりん","ブレイブバード","エアスラッシュ","れいとうパンチ"] },
+        { "name":"ガブリアス",  "nature":"ようき",    "item":"いのちのたま",  "evs":{"hp":4,"atk":252,"def":0,"spatk":0,"spdef":0,"speed":252}, "moves":["じしん","げきりん","ストーンエッジ","つるぎのまい"] },
+        { "name":"ボーマンダ",  "nature":"ひかえめ",  "item":"いのちのたま",  "evs":{"hp":4,"atk":0,"def":0,"spatk":252,"spdef":0,"speed":252}, "moves":["りゅうせいぐん","エアスラッシュ","かみなり","れいとうビーム"] },
+        { "name":"ドラパルト",  "nature":"ようき",    "item":"こだわりスカーフ","evs":{"hp":4,"atk":252,"def":0,"spatk":0,"spdef":0,"speed":252}, "moves":["シャドーボール","りゅうのいぶき","かみくだく","ブレイブバード"] },
+        { "name":"ヘルガー",    "nature":"ひかえめ",  "item":"こだわりメガネ","evs":{"hp":4,"atk":0,"def":0,"spatk":252,"spdef":0,"speed":252}, "moves":["かえんほうしゃ","かみくだく","シャドーボール","りゅうのいぶき"] },
+        { "name":"ミュウツー",  "nature":"ひかえめ",  "item":"いのちのたま",  "evs":{"hp":4,"atk":0,"def":0,"spatk":252,"spdef":0,"speed":252}, "moves":["サイコキネシス","みらいよち","ばかぢから","ラスターカノン"] }
+      ]
+    }
+  ]
+}

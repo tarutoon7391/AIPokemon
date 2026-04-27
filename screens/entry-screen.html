@@ -1,0 +1,22 @@
+<div id="entry-screen" class="screen">
+  <div class="screen-header">
+    <h2 class="screen-title">📦 パーティ構築</h2>
+    <div class="csv-controls">
+      <button onclick="exportCSV()" class="btn-csv">💾 保存</button>
+      <input type="file" id="csv-upload" accept=".csv" style="display:none" onchange="importCSV(event)">
+      <button onclick="document.getElementById('csv-upload').click()" class="btn-csv">📂 読込</button>
+    </div>
+  </div>
+
+  <div class="party-header">
+    <span>手持ち: <b id="entry-count">0</b> / 6</span>
+  </div>
+  <div id="party-slots" class="party-slots-grid"></div>
+
+  <div class="section-label">ボックス (クリックで追加)</div>
+  <div id="available-pokemon-list" class="box-grid"></div>
+
+  <button id="ready-to-match-btn" onclick="goToNpcSelect()" disabled class="btn-primary mt">
+    ⚔️ トレーナーを選ぶ
+  </button>
+</div>

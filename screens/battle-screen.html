@@ -1,0 +1,86 @@
+<div id="battle-field" class="screen">
+  <div class="battle-arena" id="battle-arena">
+    <!-- 背景 -->
+    <div class="arena-bg">
+      <div class="arena-sky"></div>
+      <div class="arena-ground"></div>
+      <div class="arena-platform enemy-platform"></div>
+      <div class="arena-platform player-platform"></div>
+    </div>
+
+    <!-- 敵側 -->
+    <div class="battle-side enemy-side">
+      <div class="status-box enemy-status">
+        <div class="status-name-row">
+          <span class="b-name" id="enemy-name">---</span>
+          <span class="b-item" id="enemy-item-display"></span>
+          <span class="b-status-badge" id="enemy-status-badge"></span>
+        </div>
+        <div class="hp-row">
+          <div class="hp-bar-outer">
+            <div class="hp-bar-inner" id="enemy-hp-bar"></div>
+          </div>
+        </div>
+        <div class="hp-nums" id="enemy-hp-text">--- / ---</div>
+        <div class="rank-display" id="enemy-ranks"></div>
+      </div>
+      <div class="sprite-wrap">
+        <div class="battle-sprite enemy-sprite" id="enemy-sprite"></div>
+      </div>
+    </div>
+
+    <!-- 自分側 -->
+    <div class="battle-side player-side">
+      <div class="sprite-wrap">
+        <div class="battle-sprite player-sprite" id="player-sprite"></div>
+      </div>
+      <div class="status-box player-status">
+        <div class="status-name-row">
+          <span class="b-name" id="player-name">---</span>
+          <span class="b-item" id="player-item-display"></span>
+          <span class="b-status-badge" id="player-status-badge"></span>
+        </div>
+        <div class="hp-row">
+          <div class="hp-bar-outer">
+            <div class="hp-bar-inner" id="player-hp-bar"></div>
+          </div>
+        </div>
+        <div class="hp-nums" id="player-hp-text">--- / ---</div>
+        <div class="rank-display" id="player-ranks"></div>
+      </div>
+    </div>
+
+    <!-- 残りポケモン表示 -->
+    <div class="remaining-row">
+      <div class="remaining" id="enemy-remaining"></div>
+      <div class="remaining" id="player-remaining"></div>
+    </div>
+  </div>
+
+  <!-- バトルメニュー -->
+  <div class="battle-menu" id="battle-menu">
+    <div class="menu-tabs">
+      <button class="tab-btn active" id="tab-move" onclick="showTab('move')">わざ</button>
+      <button class="tab-btn" id="tab-swap" onclick="showTab('swap')">ポケモン</button>
+    </div>
+    <div id="tab-content-move" class="tab-content active">
+      <div id="move-buttons" class="move-grid"></div>
+    </div>
+    <div id="tab-content-swap" class="tab-content">
+      <div id="party-list" class="swap-grid"></div>
+    </div>
+  </div>
+
+  <!-- ログウィンドウ -->
+  <div id="log-window">
+    <div id="log-text">バトル開始！</div>
+  </div>
+
+  <!-- 強制交代モーダル -->
+  <div id="force-swap-modal" class="modal" style="display:none">
+    <div class="modal-box">
+      <p class="modal-title">次のポケモンを選んでください</p>
+      <div id="force-swap-list" class="swap-grid"></div>
+    </div>
+  </div>
+</div>
