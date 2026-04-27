@@ -3,6 +3,7 @@
 // パーティ編集画面の状態
 let myPartyData = [];
 let currentEditIdx = null;
+const MAX_PARTY_SIZE = 6;
 const PARTY_SAVE_KEY = "aipokemon.party.v2";
 const PARTY_SAVE_VERSION = 2;
 let partySaveErrorNotified = false;
@@ -55,7 +56,7 @@ function migratePartyData(raw) {
   } else if (raw && Array.isArray(raw.party)) {
     list = raw.party;
   }
-  return list.slice(0, 6).map(migratePartyMember).filter(Boolean);
+  return list.slice(0, MAX_PARTY_SIZE).map(migratePartyMember).filter(Boolean);
 }
 
 function savePartyData() {

@@ -61,7 +61,7 @@ function setOnlineStatus(message) {
 function ensureOnlineSocket() {
   if (onlineSocket) return true;
   if (typeof io === "undefined") {
-    alert("オンライン対戦はサーバー起動時のみ利用できます。`npm install` 後に `node server.js` を実行してください。");
+    alert("オンライン対戦機能は現在利用できません。サーバー管理者に確認してください。");
     return false;
   }
 

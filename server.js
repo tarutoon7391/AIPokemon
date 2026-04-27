@@ -6,7 +6,9 @@ const { Server } = require("socket.io");
 
 const app = express();
 const server = http.createServer(app);
+const MAX_PARTY_SIZE = 6;
 const MIN_BATTLE_PARTY_SIZE = 3;
+const SWAP_PRIORITY = 6;
 const ROOM_CODE_MIN = 1000;
 const ROOM_CODE_MAX = 9999;
 const ROOM_CODE_RETRY_LIMIT = 10000;
@@ -151,7 +153,7 @@ function migratePokemon(raw) {
 
 function migrateParty(rawParty) {
   const list = Array.isArray(rawParty) ? rawParty : [];
-  return list.slice(0, MIN_BATTLE_PARTY_SIZE).map(migratePokemon);
+  return list.slice(0, MAX_PARTY_SIZE).map(migratePokemon);
 }
 
 function getStat(p, stat) {
@@ -255,7 +257,7 @@ function resolveBattleTurn(room) {
       return { ...entry, type: "none", priority: -99, speed: 0 };
     }
     if (entry.action?.type === "swap") {
-      return { ...entry, type: "swap", priority: 6, speed: getStat(active, "speed"), order: entry.side === "p1" ? 0 : 1 };
+      return { ...entry, type: "swap", priority: SWAP_PRIORITY, speed: getStat(active, "speed"), order: entry.side === "p1" ? 0 : 1 };
     }
     const moveName = validateMoveAction(entry.side, entry.action || {}, battle);
     const move = DB.moves[moveName];
