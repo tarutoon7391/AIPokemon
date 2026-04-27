@@ -49,7 +49,12 @@ function migratePartyMember(raw) {
 }
 
 function migratePartyData(raw) {
-  const list = Array.isArray(raw) ? raw : Array.isArray(raw?.party) ? raw.party : [];
+  let list = [];
+  if (Array.isArray(raw)) {
+    list = raw;
+  } else if (raw && Array.isArray(raw.party)) {
+    list = raw.party;
+  }
   return list.slice(0, 6).map(migratePartyMember).filter(Boolean);
 }
 

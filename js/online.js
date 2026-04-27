@@ -219,7 +219,7 @@ function applyOnlineBattleState(payload) {
   updateUI();
 
   const logs = Array.isArray(payload.logs) ? payload.logs : [];
-  if (logs.length) addLog(logs[logs.length - 1]);
+  if (logs.length) addLog(logs.join("\n"));
 
   if (battle.finished) {
     onlineBattleMode = false;

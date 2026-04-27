@@ -42,6 +42,8 @@ const DB = (() => {
   }
 })();
 const INDEX_HTML = fs.readFileSync(INDEX_PATH, "utf8");
+const STYLE_CSS = fs.readFileSync(STYLE_PATH, "utf8");
+const POKEMON_DB_DATA_JS = fs.readFileSync(POKEMON_DB_DATA_PATH, "utf8");
 
 const TYPE_CHART_RAW = {
   "ノーマル": { "いわ": 0.5, "はがね": 0.5, "ゴースト": 0 },
@@ -68,7 +70,7 @@ const rooms = new Map();
 
 function createRoomCode() {
   for (let i = 0; i < ROOM_CODE_RETRY_LIMIT; i++) {
-    const num = Math.floor(ROOM_CODE_MIN + Math.random() * (ROOM_CODE_MAX - ROOM_CODE_MIN + 1));
+    const num = Math.floor(Math.random() * (ROOM_CODE_MAX - ROOM_CODE_MIN + 1)) + ROOM_CODE_MIN;
     const code = String(num);
     if (!rooms.has(code)) return code;
   }
@@ -253,7 +255,7 @@ function resolveBattleTurn(room) {
       return { ...entry, type: "none", priority: -99, speed: 0 };
     }
     if (entry.action?.type === "swap") {
-      return { ...entry, type: "swap", priority: 6, speed: getStat(active, "speed") };
+      return { ...entry, type: "swap", priority: 6, speed: getStat(active, "speed"), order: entry.side === "p1" ? 0 : 1 };
     }
     const moveName = validateMoveAction(entry.side, entry.action || {}, battle);
     const move = DB.moves[moveName];
@@ -263,14 +265,15 @@ function resolveBattleTurn(room) {
       moveName,
       move,
       priority: Number(move?.priority || 0),
-      speed: getStat(active, "speed")
+      speed: getStat(active, "speed"),
+      order: entry.side === "p1" ? 0 : 1
     };
   });
 
   decorated.sort((a, b) => {
     if (a.priority !== b.priority) return b.priority - a.priority;
     if (a.speed !== b.speed) return b.speed - a.speed;
-    return Math.random() < 0.5 ? -1 : 1;
+    return a.order - b.order;
   });
 
   for (const turnAction of decorated) {
@@ -370,11 +373,11 @@ app.use("/js", express.static(path.join(__dirname, "js")));
 app.use("/screens", express.static(path.join(__dirname, "screens")));
 
 app.get("/style.css", (_req, res) => {
-  res.type("text/css").sendFile(STYLE_PATH);
+  res.type("text/css").send(STYLE_CSS);
 });
 
 app.get("/pokemon_db_data.js", (_req, res) => {
-  res.type("application/javascript").sendFile(POKEMON_DB_DATA_PATH);
+  res.type("application/javascript").send(POKEMON_DB_DATA_JS);
 });
 
 app.get("/", (_req, res) => {
