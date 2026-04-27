@@ -20,6 +20,7 @@ function renderBox() {
 function renderPartySlots() {
   const slots = document.getElementById("party-slots");
   if (!slots) return;
+  myPartyData = migratePartyData(myPartyData);
   slots.innerHTML = "";
   for (let i = 0; i < 6; i++) {
     const p = myPartyData[i];
@@ -46,6 +47,7 @@ function renderPartySlots() {
   if (countEl) countEl.innerText = myPartyData.length;
   const readyBtn = document.getElementById("ready-to-match-btn");
   if (readyBtn) readyBtn.disabled = myPartyData.length !== 6;
+  savePartyData();
 }
 
 // パーティにポケモン追加
@@ -165,6 +167,7 @@ function toggleMove(idx, move, checkbox) {
   } else {
     p.moves = p.moves.filter(m => m !== move);
   }
+  savePartyData();
 }
 
 // 編集画面から戻る

@@ -8,6 +8,7 @@ function init() {
   if (startBtn) startBtn.addEventListener("click", startGameFromTitle);
 
   loadDatabase().then(() => {
+    loadPartyDataWithMigration();
     renderBox();
     renderPartySlots();
     showScreen('title-screen');
