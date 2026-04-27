@@ -20,7 +20,7 @@ function importCSV(e) {
   const reader = new FileReader();
   reader.onload = ev => {
     const lines = ev.target.result.split("\n").filter(l => l.trim());
-    myPartyData = lines.slice(1, 7).map(line => {
+    const imported = lines.slice(1, 7).map(line => {
       const c = line.split(",").map(v => v.trim());
       if (!POKEMON_SPECIES[c[0]]) return null;
       return {
@@ -29,6 +29,8 @@ function importCSV(e) {
         moves:c.slice(9,13).filter(m => m && MOVES[m])
       };
     }).filter(Boolean);
+    myPartyData = migratePartyData(imported);
+    savePartyData();
     renderPartySlots();
     alert("読み込み完了！");
   };

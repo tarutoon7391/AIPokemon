@@ -50,6 +50,9 @@ const screenTemplates = {
       <button id="ready-to-match-btn" onclick="goToNpcSelect()" disabled class="btn-primary mt">
         ⚔️ トレーナーを選ぶ
       </button>
+      <button onclick="goToOnlineScreen()" class="btn-primary mt" style="background:#1f6feb;box-shadow:0 4px 0 #12407a;">
+        🌐 オンライン対戦
+      </button>
     </div>
   `,
   
@@ -96,6 +99,38 @@ const screenTemplates = {
       <button id="start-battle-btn" onclick="startBattle()" disabled class="btn-danger mt">
         ⚔️ バトル開始！
       </button>
+    </div>
+  `,
+
+  'online-screen': `
+    <div id="online-screen" class="screen">
+      <div class="screen-header">
+        <button onclick="showScreen('entry-screen')" class="btn-back">← 戻る</button>
+        <h2 class="screen-title">🌐 オンライン対戦</h2>
+      </div>
+
+      <div class="match-section">
+        <div class="match-label">1) ルームを作る</div>
+        <button class="btn-primary" onclick="createOnlineRoom()">ルームを作成</button>
+      </div>
+
+      <hr class="divider">
+
+      <div class="match-section">
+        <div class="match-label">2) ルームに参加する</div>
+        <input id="online-room-code-input" type="text" maxlength="4" placeholder="4桁コード" style="width:100%;padding:10px;border-radius:10px;border:2px solid #333;margin:10px 0;">
+        <button class="btn-primary" onclick="joinOnlineRoom()">ルームに参加</button>
+      </div>
+
+      <hr class="divider">
+
+      <div class="match-section">
+        <div class="match-label">ルームコード</div>
+        <div id="online-room-code-display" class="npc-info-banner">未接続</div>
+        <button class="btn-danger mt" onclick="submitOnlineParty()">パーティ送信して開始待機</button>
+      </div>
+
+      <div id="online-status" class="result-sub" style="margin-top:12px;">待機中</div>
     </div>
   `,
   
@@ -233,6 +268,7 @@ function loadAllScreens() {
     'edit-screen',
     'npc-screen',
     'match-screen',
+    'online-screen',
     'battle-screen',
     'result-screen'
   ];

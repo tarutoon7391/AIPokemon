@@ -2,6 +2,10 @@
 
 // プレイヤーが技を選択
 async function playerTurn(moveName) {
+  if (typeof isOnlineBattleActive === "function" && isOnlineBattleActive()) {
+    sendOnlineMove(moveName);
+    return;
+  }
   if (battleLocked) return;
   battleLocked = true;
   lockButtons(true);
@@ -16,6 +20,10 @@ async function playerTurn(moveName) {
 
 // プレイヤーがポケモン交代
 async function playerSwap(idx) {
+  if (typeof isOnlineBattleActive === "function" && isOnlineBattleActive()) {
+    sendOnlineSwap(idx);
+    return;
+  }
   if (battleLocked) return;
   battleLocked = true;
   lockButtons(true);
