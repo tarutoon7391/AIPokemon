@@ -6,12 +6,42 @@ const { Server } = require("socket.io");
 
 const app = express();
 const server = http.createServer(app);
+const MIN_BATTLE_PARTY_SIZE = 3;
+const ROOM_CODE_MIN = 1000;
+const ROOM_CODE_MAX = 9999;
+const ROOM_CODE_RETRY_LIMIT = 10000;
+const allowedOrigins = (process.env.ALLOWED_ORIGINS || "")
+  .split(",")
+  .map((v) => v.trim())
+  .filter(Boolean);
+
 const io = new Server(server, {
-  cors: { origin: "*" }
+  cors: {
+    origin: (origin, callback) => {
+      if (!origin || !allowedOrigins.length || allowedOrigins.includes(origin)) {
+        callback(null, true);
+        return;
+      }
+      callback(new Error("CORS origin is not allowed"));
+    }
+  }
 });
 
 const PORT = process.env.PORT || 3000;
-const DB = JSON.parse(fs.readFileSync(path.join(__dirname, "pokemon_db.json"), "utf8"));
+const DB_PATH = path.join(__dirname, "pokemon_db.json");
+const INDEX_PATH = path.join(__dirname, "index.html");
+const STYLE_PATH = path.join(__dirname, "style.css");
+const POKEMON_DB_DATA_PATH = path.join(__dirname, "pokemon_db_data.js");
+const DB = (() => {
+  try {
+    return JSON.parse(fs.readFileSync(DB_PATH, "utf8"));
+  } catch (error) {
+    console.error(`pokemon_db.json の読み込みに失敗しました: ${DB_PATH}`);
+    console.error(error);
+    process.exit(1);
+  }
+})();
+const INDEX_HTML = fs.readFileSync(INDEX_PATH, "utf8");
 
 const TYPE_CHART_RAW = {
   "ノーマル": { "いわ": 0.5, "はがね": 0.5, "ゴースト": 0 },
@@ -37,11 +67,12 @@ const TYPE_CHART_RAW = {
 const rooms = new Map();
 
 function createRoomCode() {
-  let code = "";
-  do {
-    code = String(Math.floor(1000 + Math.random() * 9000));
-  } while (rooms.has(code));
-  return code;
+  for (let i = 0; i < ROOM_CODE_RETRY_LIMIT; i++) {
+    const num = Math.floor(ROOM_CODE_MIN + Math.random() * (ROOM_CODE_MAX - ROOM_CODE_MIN + 1));
+    const code = String(num);
+    if (!rooms.has(code)) return code;
+  }
+  return null;
 }
 
 function rankMult(rank) {
@@ -118,7 +149,7 @@ function migratePokemon(raw) {
 
 function migrateParty(rawParty) {
   const list = Array.isArray(rawParty) ? rawParty : [];
-  return list.slice(0, 6).map(migratePokemon).slice(0, 3);
+  return list.slice(0, MIN_BATTLE_PARTY_SIZE).map(migratePokemon);
 }
 
 function getStat(p, stat) {
@@ -335,15 +366,28 @@ function leaveRoom(socket, roomCode) {
   io.to(roomCode).emit("online:system", "対戦相手が退出しました。");
 }
 
-app.use(express.static(__dirname));
+app.use("/js", express.static(path.join(__dirname, "js")));
+app.use("/screens", express.static(path.join(__dirname, "screens")));
 
-app.get("*", (_req, res) => {
-  res.sendFile(path.join(__dirname, "index.html"));
+app.get("/style.css", (_req, res) => {
+  res.type("text/css").sendFile(STYLE_PATH);
+});
+
+app.get("/pokemon_db_data.js", (_req, res) => {
+  res.type("application/javascript").sendFile(POKEMON_DB_DATA_PATH);
+});
+
+app.get("/", (_req, res) => {
+  res.type("text/html").send(INDEX_HTML);
 });
 
 io.on("connection", (socket) => {
   socket.on("online:createRoom", () => {
     const code = createRoomCode();
+    if (!code) {
+      socket.emit("online:error", "ルーム作成上限に達しました。時間をおいて再試行してください。");
+      return;
+    }
     rooms.set(code, {
       code,
       players: { p1: socket.id, p2: null },
@@ -386,8 +430,8 @@ io.on("connection", (socket) => {
       return;
     }
     const migrated = migrateParty(party);
-    if (migrated.length < 3) {
-      socket.emit("online:error", "対戦には3匹以上のパーティが必要です。");
+    if (migrated.length < MIN_BATTLE_PARTY_SIZE) {
+      socket.emit("online:error", `対戦には${MIN_BATTLE_PARTY_SIZE}匹以上のパーティが必要です。`);
       return;
     }
     room.parties[slot] = migrated;

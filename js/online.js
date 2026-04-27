@@ -5,6 +5,7 @@ let onlineRoomCode = "";
 let onlinePlayerSlot = null;
 let onlineBattleMode = false;
 let onlineWaitingSlot = null;
+const MIN_BATTLE_PARTY_SIZE = 3;
 
 const ONLINE_SAVE_KEY = "aipokemon.online.v2";
 const ONLINE_SAVE_VERSION = 2;
@@ -60,7 +61,7 @@ function setOnlineStatus(message) {
 function ensureOnlineSocket() {
   if (onlineSocket) return true;
   if (typeof io === "undefined") {
-    alert("オンライン対戦はサーバー起動時のみ利用できます。");
+    alert("オンライン対戦はサーバー起動時のみ利用できます。`npm install` 後に `node server.js` を実行してください。");
     return false;
   }
 
@@ -141,8 +142,8 @@ function submitOnlineParty() {
     alert("先にルーム作成または参加を行ってください。");
     return;
   }
-  if (!Array.isArray(myPartyData) || myPartyData.length < 3) {
-    alert("オンライン対戦には3匹以上のパーティが必要です。");
+  if (!Array.isArray(myPartyData) || myPartyData.length < MIN_BATTLE_PARTY_SIZE) {
+    alert(`オンライン対戦には${MIN_BATTLE_PARTY_SIZE}匹以上のパーティが必要です。`);
     return;
   }
   onlineSocket.emit("online:submitParty", {

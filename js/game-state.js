@@ -5,6 +5,7 @@ let myPartyData = [];
 let currentEditIdx = null;
 const PARTY_SAVE_KEY = "aipokemon.party.v2";
 const PARTY_SAVE_VERSION = 2;
+let partySaveErrorNotified = false;
 
 // NPC・マッチング関連
 let selectedNpc = null;
@@ -61,6 +62,10 @@ function savePartyData() {
     localStorage.setItem(PARTY_SAVE_KEY, JSON.stringify(payload));
   } catch (e) {
     console.warn("パーティ保存に失敗:", e);
+    if (!partySaveErrorNotified) {
+      partySaveErrorNotified = true;
+      alert("ブラウザ保存に失敗したため、ページを閉じるとパーティが失われる可能性があります。");
+    }
   }
 }
 
